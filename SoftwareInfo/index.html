@@ -1,0 +1,659 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title></title>
+<script type="text/javascript" src="outliner.js"></script><style type="text/css">
+			
+                        img.status {
+                        margin-left: 2px; margin-right: 2px; margin-top: 2px; height: 11px; width: 11px;
+                        }
+                        
+                        img.checkbox-column {
+                        height: 11px; width: 11px; vertical-align: top; margin-top: 3px;
+                        }
+                        
+                        img.leaf {
+                        margin-left: 3px; margin-right:3px; margin-top: 2px; margin-bottom: 3px; height: 6px; width 6px;
+                        }
+                        
+                        img.parent {
+                        margin-left: 3px; margin-right:3px; margin-top: 2px; height: 10px; width: 10px;
+                        }
+			
+			th {
+			vertical-align: bottom;
+			
+			}
+			
+			td {
+			vertical-align: top;
+			}
+			
+			td,th {
+			
+			empty-cells: show;
+			}
+			
+			.top-right-border {
+			
+			}
+			
+			.no-border {
+			border-bottom: 0px;
+			border-left: 0px;
+			}
+			
+			
+			
+			
+			table {
+			
+			font-family: Helvetica, sans-serif;
+			font-size: 12px;
+						
+			
+			}
+
+			
+			
+			.wholeDocument {
+			
+	
+			}
+		
+			
+			td.subcell {
+			border: none;
+			}
+			
+			td.content {
+			padding-left: 4px;
+			padding-bottom: 2px;
+			padding-top: 1px;
+			padding-right: 3px;
+			}
+			
+			.full {
+			height: 100%;
+			}
+			
+			.heighthack {
+                        
+                            height: 25px;
+                            
+			}
+			
+			div.titlepadding { 
+			padding-right:3px;
+			padding-left:6px;
+			padding-bottom:3px;
+			padding-top: 2px;
+			}
+			
+			
+					.summary_node {
+						background: rgba(0,0,0,.12);
+						margin-bottom: 1px;
+					}
+				
+			
+			div.column {   
+			padding-right: 3px;
+			padding-left: 4px;
+			padding-top: 0px;
+			padding-bottom: 0px;
+			margin-right: 1px;
+			}
+			
+			.labelpadding {
+			padding-right: 3px;
+			padding-top: 1px;
+			padding-left: 2px;
+			}
+			
+			.indicator {
+			white-space: nowrap;
+			text-align:right;
+			margin-right: 0px;
+			vertical-align: top;
+			padding-top: 1px;
+			padding-left: 0px;
+			}
+			
+			.wholedocgutter {
+			
+			}
+			
+			div.row {
+			}
+			
+			div.headerRow {
+			}
+			
+			.expanded {
+			display: inline;
+			}
+			.collapsed {
+			display: none;
+			}
+			
+            div.palette-hit-zone {
+                position: fixed;
+                bottom: 0px;
+				height: 33%;
+                left:50%;
+                width: 66%;
+                margin-left: -33%;
+            }
+
+			div.floating-palette {
+                -webkit-border-radius: 5px;
+                -webkit-transition: opacity is fade-in-out;
+                -webkit-transition-duration: 1s;
+				background-color: rgb(64, 64, 64);
+                opacity:0.7;
+				width: 88px;
+				height: 44px;
+                position: fixed;
+                bottom: 20px;
+                left: 50%;
+                margin-left: -44px;
+			}
+            
+            div.palette-cell {
+                opacity:1;
+                margin-top: 6px;
+                margin-bottom: 6px;
+                position: absolute;
+                height: 32px;
+                width: 32px;
+            }
+            
+            div.cell-divider {
+                position: absolute;
+                margin-top: 6px;
+                margin-bottom: 6px;
+                margin-left: 44px;
+                height: 32px;
+                width:0px;
+                position:absolute;
+                left:0px;
+                border-right:rgb(207, 207, 207) 2px solid;
+            }
+			
+			
+			
+			
+			.note { 
+			padding-left: 5px;
+			padding-right: 3px; 
+			border: none; 
+			font-family: "Courier", sans-serif;  font-family: "Courier", sans-serif;  
+			}
+			
+			/* Total table width is 669
+			Adjusted table width is 709 */
+			
+			.wholething {
+				width: auto;
+			}
+			
+			
+			table.row {
+				
+						width: 669px;
+						
+			
+			}
+			
+			
+    .col_width1 { 
+        width: 669px;  /* Actual width is 669 */
+    }
+
+    .col1 { 
+        
+    }
+
+    .colbackground1 { 
+        
+    }
+
+			
+			/* Level Styles */
+			
+			
+    .columntitle { 
+        text-decoration:  underline;font-weight: 900;  font-size: 22px;
+    }
+
+    .level1 { 
+        color:rgb(128,0,0) ;  font-weight: 900;  font-size: 16px;
+    }
+
+    .levelcolor1 { 
+        
+    }
+
+    .levelguttercolor1 { 
+        
+    }
+
+    .level2 { 
+        color:rgb(0,0,128) ;  font-weight: 900;  font-size: 14px;
+    }
+
+    .levelcolor2 { 
+        
+    }
+
+    .levelguttercolor2 { 
+        
+    }
+
+    .level3 { 
+        font-size: 13px;
+    }
+
+    .levelcolor3 { 
+        
+    }
+
+    .levelguttercolor3 { 
+        
+    }
+
+    .ns-Highlight { 
+        }
+
+    .ns-Citation { 
+        text-decoration:  underline;}
+
+    .ns-Emphasis { 
+        font-style: italic;}
+
+    .ns-bg-Highlight { 
+        background-color:rgb(255,255,102) ;  }
+
+    .ns-bg-Citation { 
+        }
+
+    .ns-bg-Emphasis { 
+        }
+
+    .ns-gutter-Highlight { 
+        }
+
+    .ns-gutter-Citation { 
+        }
+
+    .ns-gutter-Emphasis { 
+        }
+</style>
+</head>
+<body class="wholeDocument"><table cellspacing="0" cellpadding="0" class="top-right-border"><tr><td class="wholething no-border">
+<!--Column Titles--><table cellspacing="0" border="0" cellpadding="0" class="headerRow heighthack"><tr><td class=" colbackground1 col_width1"><div class="columntitle titlepadding">Software tools<br>
+</div></td></tr></table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor1"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level1 levelguttercolor1" style="width: 9px;"></td>
+<td class=" subcell wholedocgutter indicator level1 levelguttercolor1" style="width: 15px;"><img onmousedown="ioSwitch('pb-niKrUg2VG', event.shiftKey)" id="ib-niKrUg2VG" border="0" alt="V" class="parent" src="Expanded.png" title="collapse"></td>
+<td class=" subcell wholedocgutter labelpadding level1 levelguttercolor1" style=" width: 1px; "></td>
+<td class=" content level1 subcell">Basic development tools<br>
+</td>
+</tr></table></div></td></tr></table>
+<div id="pb-niKrUg2VG" class="expanded">
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor2"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level2 levelguttercolor2" style="width: 25px;"></td>
+<td class=" subcell wholedocgutter indicator level2 levelguttercolor2" style="width: 15px;"><img onmousedown="ioSwitch('piBawFi-aK24', event.shiftKey)" id="iiBawFi-aK24" border="0" alt="V" class="parent" src="Expanded.png" title="collapse"></td>
+<td class=" subcell wholedocgutter labelpadding level2 levelguttercolor2" style=" width: 1px; "></td>
+<td class=" content level2 subcell">Command line interpreter/terminal/console program<br>
+</td>
+</tr></table></div></td></tr></table>
+<div id="piBawFi-aK24" class="expanded">
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level3 levelguttercolor3" style="width: 41px;"></td>
+<td class=" subcell wholedocgutter indicator level3 levelguttercolor3" style="width: 15px;"><img border="0" alt="*" class="leaf" src="LeafRowHandle.png"></td>
+<td class=" subcell wholedocgutter labelpadding level3 levelguttercolor3" style=" width: 1px; "></td>
+<td class=" content level3 subcell">We will presume you know how to launch a terminal program, and how to use it to navigate around your file system.<br>
+</td>
+</tr></table></div></td></tr></table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level3 levelguttercolor3" style="width: 41px;"></td>
+<td class=" subcell wholedocgutter indicator level3 levelguttercolor3" style="width: 15px;"><img onmousedown="ioSwitch('pnjX1756TMmb', event.shiftKey)" id="injX1756TMmb" border="0" alt="V" class="parent" src="Expanded.png" title="collapse"></td>
+<td class=" subcell wholedocgutter labelpadding level3 levelguttercolor3" style=" width: 1px; "></td>
+<td class=" content level3 subcell">Recommended tools:<br>
+</td>
+</tr></table></div></td></tr></table>
+<div id="pnjX1756TMmb" class="expanded">
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level4 levelguttercolor4" style="width: 57px;"></td>
+<td class=" subcell wholedocgutter indicator level4 levelguttercolor4" style="width: 15px;"><img border="0" alt="*" class="leaf" src="LeafRowHandle.png"></td>
+<td class=" subcell wholedocgutter labelpadding level4 levelguttercolor4" style=" width: 1px; "></td>
+<td class=" content level4 subcell">Linux users:  An <span class="" style="font-weight: 900;  ">xterm</span> running any modern shell should be fine.<br>
+</td>
+</tr></table></div></td></tr></table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level4 levelguttercolor4" style="width: 57px;"></td>
+<td class=" subcell wholedocgutter indicator level4 levelguttercolor4" style="width: 15px;"><img border="0" alt="*" class="leaf" src="LeafRowHandle.png"></td>
+<td class=" subcell wholedocgutter labelpadding level4 levelguttercolor4" style=" width: 1px; "></td>
+<td class=" content level4 subcell">Mac OS X users:  The <span class="" style="font-weight: 900;  ">Terminal</span> app that comes with OS X is completely adequate for our purposes; it's in the Utilities folder in your Applications folder. More popular among serious developers is <span class="" style="font-weight: 900;  ">iTerm 2</span>, which resembles Terminal at launch, but is more customizable.  It's free (donations welcome) from:  <span><a href="http://iterm2.com/">iTerm2 - Mac OS Terminal Replacement</a></span>.<br>
+</td>
+</tr></table></div></td></tr></table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level4 levelguttercolor4" style="width: 57px;"></td>
+<td class=" subcell wholedocgutter indicator level4 levelguttercolor4" style="width: 15px;"><img border="0" alt="*" class="leaf" src="LeafRowHandle.png"></td>
+<td class=" subcell wholedocgutter labelpadding level4 levelguttercolor4" style=" width: 1px; "></td>
+<td class=" content level4 subcell">Windows users:  The <span class="" style="font-weight: 900;  ">Command Prompt</span> program comes with Windows and should be fine for our purposes. A popular alternative, with some extra features like tabs and customization options, is <span class="" style="font-weight: 900;  ">Console</span> (aka Console 2), and open-source project at SourceForge:   <span><a href="http://sourceforge.net/projects/console/">Console | SourceForge.net</a></span>.<br>
+</td>
+</tr></table></div></td></tr></table>
+</div>
+</div>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor2"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level2 levelguttercolor2" style="width: 25px;"></td>
+<td class=" subcell wholedocgutter indicator level2 levelguttercolor2" style="width: 15px;"><img onmousedown="ioSwitch('pf8-9pLn-fDa', event.shiftKey)" id="if8-9pLn-fDa" border="0" alt="V" class="parent" src="Expanded.png" title="collapse"></td>
+<td class=" subcell wholedocgutter labelpadding level2 levelguttercolor2" style=" width: 1px; "></td>
+<td class=" content level2 subcell">Text editor/code editor/IDE<br>
+</td>
+</tr></table></div></td></tr></table>
+<div id="pf8-9pLn-fDa" class="expanded">
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level3 levelguttercolor3" style="width: 41px;"></td>
+<td class=" subcell wholedocgutter indicator level3 levelguttercolor3" style="width: 15px;"><img border="0" alt="*" class="leaf" src="LeafRowHandle.png"></td>
+<td class=" subcell wholedocgutter labelpadding level3 levelguttercolor3" style=" width: 1px; "></td>
+<td class=" content level3 subcell">You will need a plain text editor (not a word processor) to write software and plain-text documentation files using the Markdown markup language.  You could get by with a bare-bones text editor, but consider learning how to use a code editor---a text editor that understands various programming languages, providing capabilities that ease or speed development, such a syntax-aware highlighting, automatic indentation, and code completion.<br>
+</td>
+</tr></table></div></td></tr></table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level3 levelguttercolor3" style="width: 41px;"></td>
+<td class=" subcell wholedocgutter indicator level3 levelguttercolor3" style="width: 15px;"><img border="0" alt="*" class="leaf" src="LeafRowHandle.png"></td>
+<td class=" subcell wholedocgutter labelpadding level3 levelguttercolor3" style=" width: 1px; "></td>
+<td class=" content level3 subcell">A very popular cross-platform (Mac/Win/Linux) code editor is <span class="" style="font-weight: 900;  ">Sublime Text 3</span>. This is a commercial app, but version 3 is currently in beta (but very stable) and thus free (and earlier paid versions were 100% functional even without a license). ST3 is a very capable editor by itself, but its real strength comes from the thousands of 3rd-party packages developers have created for it. Its main downside is a somewhat awkward preference/customization system. Expect to struggle with it at first, but if you develop on multiple platforms, or you do both scientific and web programming, it will probably be worth the effort.  It's available here: <span class="" style="font-size: 12px;"> <span><a href="http://www.sublimetext.com/3">Sublime Text - Download</a></span></span><span class="" style="font-size: 12px;">. After installation, the first thing you should do is install the Package Control package manager (</span><span class="" style="font-size: 12px;"> <span><a href="https://packagecontrol.io/">Package Control - the Sublime Text package manager</a></span></span><span class="" style="font-size: 12px;">), which simplifies access to the ecosystem of packages. Many ST3 tutorials are available online (the interface is little changed from ST2, so ST2 tutorials remain useful).</span><br>
+</td>
+</tr></table></div></td></tr></table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level3 levelguttercolor3" style="width: 41px;"></td>
+<td class=" subcell wholedocgutter indicator level3 levelguttercolor3" style="width: 15px;"><img border="0" alt="*" class="leaf" src="LeafRowHandle.png"></td>
+<td class=" subcell wholedocgutter labelpadding level3 levelguttercolor3" style=" width: 1px; "></td>
+<td class=" content level3 subcell">An emerging, open-source competitor to ST3 is <span class="" style="font-weight: 900;  ">Atom</span>, both managed and hosted by GitHub.com: <span class="" style="font-size: 12px;"> <span><a href="https://atom.io/">Atom</a></span></span><br>
+</td>
+</tr></table></div></td></tr></table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level3 levelguttercolor3" style="width: 41px;"></td>
+<td class=" subcell wholedocgutter indicator level3 levelguttercolor3" style="width: 15px;"><img onmousedown="ioSwitch('pd5otrsmc2WC', event.shiftKey)" id="id5otrsmc2WC" border="0" alt="V" class="parent" src="Expanded.png" title="collapse"></td>
+<td class=" subcell wholedocgutter labelpadding level3 levelguttercolor3" style=" width: 1px; "></td>
+<td class=" content level3 subcell">Other popular, free alternatives that will serve our needs well include:<br>
+</td>
+</tr></table></div></td></tr></table>
+<div id="pd5otrsmc2WC" class="expanded">
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level4 levelguttercolor4" style="width: 57px;"></td>
+<td class=" subcell wholedocgutter indicator level4 levelguttercolor4" style="width: 15px;"><img border="0" alt="*" class="leaf" src="LeafRowHandle.png"></td>
+<td class=" subcell wholedocgutter labelpadding level4 levelguttercolor4" style=" width: 1px; "></td>
+<td class=" content level4 subcell">Windows:  <span><a href="http://notepad-plus-plus.org/">Notepad++</a></span><br>
+</td>
+</tr></table></div></td></tr></table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level4 levelguttercolor4" style="width: 57px;"></td>
+<td class=" subcell wholedocgutter indicator level4 levelguttercolor4" style="width: 15px;"><img border="0" alt="*" class="leaf" src="LeafRowHandle.png"></td>
+<td class=" subcell wholedocgutter labelpadding level4 levelguttercolor4" style=" width: 1px; "></td>
+<td class=" content level4 subcell">Mac:  <span><a href="http://www.barebones.com/products/textwrangler/">TextWrangler</a></span><br>
+</td>
+</tr></table></div></td></tr></table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level4 levelguttercolor4" style="width: 57px;"></td>
+<td class=" subcell wholedocgutter indicator level4 levelguttercolor4" style="width: 15px;"><img border="0" alt="*" class="leaf" src="LeafRowHandle.png"></td>
+<td class=" subcell wholedocgutter labelpadding level4 levelguttercolor4" style=" width: 1px; "></td>
+<td class=" content level4 subcell">Linux: Text editors that ship with many distributions, such as <span class="" style="font-weight: 900;  ">kate</span> or <span class="" style="font-weight: 900;  ">gedit</span>, provide decent code editing capability.<br>
+</td>
+</tr></table></div></td></tr></table>
+</div>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level3 levelguttercolor3" style="width: 41px;"></td>
+<td class=" subcell wholedocgutter indicator level3 levelguttercolor3" style="width: 15px;"><img border="0" alt="*" class="leaf" src="LeafRowHandle.png"></td>
+<td class=" subcell wholedocgutter labelpadding level3 levelguttercolor3" style=" width: 1px; "></td>
+<td class=" content level3 subcell">An integrated development environment (IDE) combines a code editor with other useful development tools, such as built-in command consoles, debugging aids, and variable and class browsers. The Anaconda Python distribution we will be using provides <span class="" style="font-weight: 900;  ">Spyder</span> (<span class="" style="font-size: 12px;"> <span><a href="https://code.google.com/p/spyderlib/">https://code.google.com/p/spyderlib/</a></span></span><span class="" style="font-size: 12px;">) a very capable cross-platform IDE. We may provide an introduction to Spyder in a lab.</span><br>
+</td>
+</tr></table></div></td></tr></table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level3 levelguttercolor3" style="width: 41px;"></td>
+<td class=" subcell wholedocgutter indicator level3 levelguttercolor3" style="width: 15px;"><img border="0" alt="*" class="leaf" src="LeafRowHandle.png"></td>
+<td class=" subcell wholedocgutter labelpadding level3 levelguttercolor3" style=" width: 1px; "></td>
+<td class=" content level3 subcell">Many other IDEs are available. If you explore options, keep in mind that different IDEs provide support for different sets of languages. For example, Spyder was initially Python-focused, but has since broadened; however, it doesn't yet support Markdown (but Markdown support is currently being added).<br>
+</td>
+</tr></table></div></td></tr></table>
+</div>
+</div>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor1"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level1 levelguttercolor1" style="width: 9px;"></td>
+<td class=" subcell wholedocgutter indicator level1 levelguttercolor1" style="width: 15px;"><img onmousedown="ioSwitch('pdL-2-4CeZ_A', event.shiftKey)" id="idL-2-4CeZ_A" border="0" alt="V" class="parent" src="Expanded.png" title="collapse"></td>
+<td class=" subcell wholedocgutter labelpadding level1 levelguttercolor1" style=" width: 1px; "></td>
+<td class=" content level1 subcell">Git<br>
+</td>
+</tr></table></div></td></tr></table>
+<div id="pdL-2-4CeZ_A" class="expanded">
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor2"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level2 levelguttercolor2" style="width: 25px;"></td>
+<td class=" subcell wholedocgutter indicator level2 levelguttercolor2" style="width: 15px;"><img onmousedown="ioSwitch('pie_6xI_1IUH', event.shiftKey)" id="iie_6xI_1IUH" border="0" alt="V" class="parent" src="Expanded.png" title="collapse"></td>
+<td class=" subcell wholedocgutter labelpadding level2 levelguttercolor2" style=" width: 1px; "></td>
+<td class=" content level2 subcell">Git DVCS<br>
+</td>
+</tr></table></div></td></tr></table>
+<div id="pie_6xI_1IUH" class="expanded">
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level3 levelguttercolor3" style="width: 41px;"></td>
+<td class=" subcell wholedocgutter indicator level3 levelguttercolor3" style="width: 15px;"><img border="0" alt="*" class="leaf" src="LeafRowHandle.png"></td>
+<td class=" subcell wholedocgutter labelpadding level3 levelguttercolor3" style=" width: 1px; "></td>
+<td class=" content level3 subcell">The course will expose you to the basics of the Git distributed version control system (DVCS, also known as a Source Configuration Management (SCM) system), and use of the GitHub web site for software collaboration and sharing. Some of your assignments will be due as Git repositories ("repos").<br>
+</td>
+</tr></table></div></td></tr></table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level3 levelguttercolor3" style="width: 41px;"></td>
+<td class=" subcell wholedocgutter indicator level3 levelguttercolor3" style="width: 15px;"><img border="0" alt="*" class="leaf" src="LeafRowHandle.png"></td>
+<td class=" subcell wholedocgutter labelpadding level3 levelguttercolor3" style=" width: 1px; "></td>
+<td class=" content level3 subcell">The Git web site is: <span class="" style="font-size: 12px;"> <span><a href="http://git-scm.com/">http://git-scm.com/</a></span></span><br>
+</td>
+</tr></table></div></td></tr></table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level3 levelguttercolor3" style="width: 41px;"></td>
+<td class=" subcell wholedocgutter indicator level3 levelguttercolor3" style="width: 15px;"><img onmousedown="ioSwitch('pgetgNHJkvVq', event.shiftKey)" id="igetgNHJkvVq" border="0" alt="V" class="parent" src="Expanded.png" title="collapse"></td>
+<td class=" subcell wholedocgutter labelpadding level3 levelguttercolor3" style=" width: 1px; "></td>
+<td class=" content level3 subcell">If you don't already have Git installed on your computer, install it:<br>
+</td>
+</tr></table></div></td></tr></table>
+<div id="pgetgNHJkvVq" class="expanded">
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level4 levelguttercolor4" style="width: 57px;"></td>
+<td class=" subcell wholedocgutter indicator level4 levelguttercolor4" style="width: 15px;"><img border="0" alt="*" class="leaf" src="LeafRowHandle.png"></td>
+<td class=" subcell wholedocgutter labelpadding level4 levelguttercolor4" style=" width: 1px; "></td>
+<td class=" content level4 subcell">Linux users:  You likely already have Git (try "which git" at a command line prompt), but if not, you should be able to install it easily via your package manager.<br>
+</td>
+</tr></table></div></td></tr></table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level4 levelguttercolor4" style="width: 57px;"></td>
+<td class=" subcell wholedocgutter indicator level4 levelguttercolor4" style="width: 15px;"><img border="0" alt="*" class="leaf" src="LeafRowHandle.png"></td>
+<td class=" subcell wholedocgutter labelpadding level4 levelguttercolor4" style=" width: 1px; "></td>
+<td class=" content level4 subcell">Windows users: Use the installer at the Git web site.<br>
+</td>
+</tr></table></div></td></tr></table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level4 levelguttercolor4" style="width: 57px;"></td>
+<td class=" subcell wholedocgutter indicator level4 levelguttercolor4" style="width: 15px;"><img onmousedown="ioSwitch('pg3WB1wdGwpg', event.shiftKey)" id="ig3WB1wdGwpg" border="0" alt="V" class="parent" src="Expanded.png" title="collapse"></td>
+<td class=" subcell wholedocgutter labelpadding level4 levelguttercolor4" style=" width: 1px; "></td>
+<td class=" content level4 subcell">Mac users:  A Mac installer is available at the Git web site. However, you should consider installing the Homebrew package manager, and use it to install Git. Homebrew will give you easy access to many packages and programs ported to the Mac from the Linux community and elsewhere. To get Git via Homebrew:<br>
+</td>
+</tr></table></div></td></tr></table>
+<div id="pg3WB1wdGwpg" class="expanded">
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" alt="*" class="leaf" src="LeafRowHandle.png"></td>
+<td class=" subcell wholedocgutter labelpadding level5 levelguttercolor5" style=" width: 1px; "></td>
+<td class=" content level5 subcell">Install Homebrew via the instructions at its home page:  <span><a href="http://brew.sh/">Homebrew — The missing package manager for OS X</a></span>. This involves pasting a 1-line command into an open terminal window (and responding to some prompts).<br>
+</td>
+</tr></table></div></td></tr></table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor5"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level5 levelguttercolor5" style="width: 73px;"></td>
+<td class=" subcell wholedocgutter indicator level5 levelguttercolor5" style="width: 15px;"><img border="0" alt="*" class="leaf" src="LeafRowHandle.png"></td>
+<td class=" subcell wholedocgutter labelpadding level5 levelguttercolor5" style=" width: 1px; "></td>
+<td class=" content level5 subcell">Again in a terminal window (in any directory), type: "brew install git"<br>
+</td>
+</tr></table></div></td></tr></table>
+</div>
+</div>
+</div>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor2"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level2 levelguttercolor2" style="width: 25px;"></td>
+<td class=" subcell wholedocgutter indicator level2 levelguttercolor2" style="width: 15px;"><img onmousedown="ioSwitch('pk_xGZncA5ex', event.shiftKey)" id="ik_xGZncA5ex" border="0" alt="V" class="parent" src="Expanded.png" title="collapse"></td>
+<td class=" subcell wholedocgutter labelpadding level2 levelguttercolor2" style=" width: 1px; "></td>
+<td class=" content level2 subcell">GitHub<br>
+</td>
+</tr></table></div></td></tr></table>
+<div id="pk_xGZncA5ex" class="expanded">
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level3 levelguttercolor3" style="width: 41px;"></td>
+<td class=" subcell wholedocgutter indicator level3 levelguttercolor3" style="width: 15px;"><img border="0" alt="*" class="leaf" src="LeafRowHandle.png"></td>
+<td class=" subcell wholedocgutter labelpadding level3 levelguttercolor3" style=" width: 1px; "></td>
+<td class=" content level3 subcell">GitHub is a web site that can host Git repos to support distributed access and development. Our course has a GitHub "organization" account that will we use for distributing and collecting some assignments.<br>
+</td>
+</tr></table></div></td></tr></table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level3 levelguttercolor3" style="width: 41px;"></td>
+<td class=" subcell wholedocgutter indicator level3 levelguttercolor3" style="width: 15px;"><img onmousedown="ioSwitch('pcBRA5phaTYk', event.shiftKey)" id="icBRA5phaTYk" border="0" alt="V" class="parent" src="Expanded.png" title="collapse"></td>
+<td class=" subcell wholedocgutter labelpadding level3 levelguttercolor3" style=" width: 1px; "></td>
+<td class=" content level3 subcell">If you don't already have a GitHub account, sign up for one on the main page: <span class="" style="font-size: 12px;"> <span><a href="https://github.com/">https://github.com/</a></span></span><span class="" style="font-size: 12px;">. Once you do so, let me know your account name, so I can link it to our organization:</span><br>
+</td>
+</tr></table></div></td></tr></table>
+<div id="pcBRA5phaTYk" class="expanded"><table cellspacing="0" border="0" cellpadding="0" class="row heighthack">
+<tr><td class=" col1 colbackground1 col_width1" style="border-bottom: none;"><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level4 levelguttercolor4" style="width: 57px;"></td>
+<td class=" subcell wholedocgutter indicator level4 levelguttercolor4" style="width: 15px;"><img border="0" alt="*" class="leaf" src="LeafRowHandle.png"></td>
+<td class=" subcell wholedocgutter labelpadding level4 levelguttercolor4" style=" width: 1px; "></td>
+<td class=" content level4 subcell">Send me an email with Subject: GitHub account, and a single-line message (blank lines okay) consisting of your CU NetID followed by your GitHub account username.  For me, this would be:<br>
+</td>
+</tr></table></div></td></tr>
+<tr><td class=" level4 colbackground1"><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="width:100%"><tr>
+<td style="width: 57px;" class=" subcell wholedocgutter levelguttercolor4"></td>
+<td class=" subcell wholedocgutter levelguttercolor4" style="width: 15px;"></td>
+<td class=" subcell labelpadding wholedocgutter levelguttercolor4 level4" style=" color: rgba(0,0,0,0); width: 1px; "></td>
+<td class=" subcell" style="width: 16px;"></td>
+<td class="note subcell">tjl9 tloredo<br>
+</td>
+</tr></table></div></td></tr>
+</table></div>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level3 levelguttercolor3" style="width: 41px;"></td>
+<td class=" subcell wholedocgutter indicator level3 levelguttercolor3" style="width: 15px;"><img onmousedown="ioSwitch('phGY8D3tLmn8', event.shiftKey)" id="ihGY8D3tLmn8" border="0" alt="V" class="parent" src="Expanded.png" title="collapse"></td>
+<td class=" subcell wholedocgutter labelpadding level3 levelguttercolor3" style=" width: 1px; "></td>
+<td class=" content level3 subcell">After you have an account, consider requesting the Student Developer Pack.<br>
+</td>
+</tr></table></div></td></tr></table>
+<div id="phGY8D3tLmn8" class="expanded">
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level4 levelguttercolor4" style="width: 57px;"></td>
+<td class=" subcell wholedocgutter indicator level4 levelguttercolor4" style="width: 15px;"><img border="0" alt="*" class="leaf" src="LeafRowHandle.png"></td>
+<td class=" subcell wholedocgutter labelpadding level4 levelguttercolor4" style=" width: 1px; "></td>
+<td class=" content level4 subcell">The main benefit relevant to our course is the free GitHub "micro" account upgrade, which lets you have private Git repositories on GitHub (free accounts normally can only host public repos).<br>
+</td>
+</tr></table></div></td></tr></table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor4"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level4 levelguttercolor4" style="width: 57px;"></td>
+<td class=" subcell wholedocgutter indicator level4 levelguttercolor4" style="width: 15px;"><img border="0" alt="*" class="leaf" src="LeafRowHandle.png"></td>
+<td class=" subcell wholedocgutter labelpadding level4 levelguttercolor4" style=" width: 1px; "></td>
+<td class=" content level4 subcell">Request the pack via the button at the bottom of this page:   <span><a href="https://education.github.com/pack">https://education.github.com/pack</a></span><br>
+</td>
+</tr></table></div></td></tr></table>
+</div>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level3 levelguttercolor3" style="width: 41px;"></td>
+<td class=" subcell wholedocgutter indicator level3 levelguttercolor3" style="width: 15px;"><img border="0" alt="*" class="leaf" src="LeafRowHandle.png"></td>
+<td class=" subcell wholedocgutter labelpadding level3 levelguttercolor3" style=" width: 1px; "></td>
+<td class=" content level3 subcell">If the Student Developer Pack doesn't interest you, you might at least request an educational discount, which gives you the micro account upgrade without the other goodies.  Use the button at the top right of the Student Developer Pack page:  <span class="" style="font-size: 12px;"> <span><a href="https://education.github.com/pack">https://education.github.com/pack</a></span></span><br>
+</td>
+</tr></table></div></td></tr></table>
+</div>
+</div>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor1"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level1 levelguttercolor1" style="width: 9px;"></td>
+<td class=" subcell wholedocgutter indicator level1 levelguttercolor1" style="width: 15px;"><img onmousedown="ioSwitch('pg15m66BYA0Y', event.shiftKey)" id="ig15m66BYA0Y" border="0" alt="V" class="parent" src="Expanded.png" title="collapse"></td>
+<td class=" subcell wholedocgutter labelpadding level1 levelguttercolor1" style=" width: 1px; "></td>
+<td class=" content level1 subcell">Python<br>
+</td>
+</tr></table></div></td></tr></table>
+<div id="pg15m66BYA0Y" class="expanded">
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor2"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level2 levelguttercolor2" style="width: 25px;"></td>
+<td class=" subcell wholedocgutter indicator level2 levelguttercolor2" style="width: 15px;"><img onmousedown="ioSwitch('pczK_uF0qDje', event.shiftKey)" id="iczK_uF0qDje" border="0" alt="V" class="parent" src="Expanded.png" title="collapse"></td>
+<td class=" subcell wholedocgutter labelpadding level2 levelguttercolor2" style=" width: 1px; "></td>
+<td class=" content level2 subcell">Python environment<br>
+</td>
+</tr></table></div></td></tr></table>
+<div id="pczK_uF0qDje" class="expanded">
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level3 levelguttercolor3" style="width: 41px;"></td>
+<td class=" subcell wholedocgutter indicator level3 levelguttercolor3" style="width: 15px;"><img border="0" alt="*" class="leaf" src="LeafRowHandle.png"></td>
+<td class=" subcell wholedocgutter labelpadding level3 levelguttercolor3" style=" width: 1px; "></td>
+<td class=" content level3 subcell">We will make heavy use of the Python high-level computing language, specifically the CPython-2.7 implementation (usually just called Python-2.7; the "C" indicates it's implemented in the C language). We will also use many Python packages that are not part of CPython itself (e.g., packages providing fast numerical computing capability, plotting, and of course statistical analysis).<br>
+</td>
+</tr></table></div></td></tr></table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level3 levelguttercolor3" style="width: 41px;"></td>
+<td class=" subcell wholedocgutter indicator level3 levelguttercolor3" style="width: 15px;"><img border="0" alt="*" class="leaf" src="LeafRowHandle.png"></td>
+<td class=" subcell wholedocgutter labelpadding level3 levelguttercolor3" style=" width: 1px; "></td>
+<td class=" content level3 subcell">If you already have Python, you may still want to install a new distribution; please read on.<br>
+</td>
+</tr></table></div></td></tr></table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level3 levelguttercolor3" style="width: 41px;"></td>
+<td class=" subcell wholedocgutter indicator level3 levelguttercolor3" style="width: 15px;"><img border="0" alt="*" class="leaf" src="LeafRowHandle.png"></td>
+<td class=" subcell wholedocgutter labelpadding level3 levelguttercolor3" style=" width: 1px; "></td>
+<td class=" content level3 subcell">Linux and Mac operating systems come with a version of Python pre-installed, but even on these systems it is highly recommended that one use a separate Python installation for software development. The OS version is often several versions out of date, and will not have all the needed packages. Modifying it (by upgrading Python itself, or by updating or adding packages) can be troublesome since some system software may rely on the OS's Python and package versions.<br>
+</td>
+</tr></table></div></td></tr></table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level3 levelguttercolor3" style="width: 41px;"></td>
+<td class=" subcell wholedocgutter indicator level3 levelguttercolor3" style="width: 15px;"><img border="0" alt="*" class="leaf" src="LeafRowHandle.png"></td>
+<td class=" subcell wholedocgutter labelpadding level3 levelguttercolor3" style=" width: 1px; "></td>
+<td class=" content level3 subcell">Windows users will have to install Python (if you have installed a Linux environment for Windows, such as Cygwin or MinGW or a Linux virtual machine, you may have Python, but see the above comment for motivation for installing a separate Python development environment).<br>
+</td>
+</tr></table></div></td></tr></table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level3 levelguttercolor3" style="width: 41px;"></td>
+<td class=" subcell wholedocgutter indicator level3 levelguttercolor3" style="width: 15px;"><img border="0" alt="*" class="leaf" src="LeafRowHandle.png"></td>
+<td class=" subcell wholedocgutter labelpadding level3 levelguttercolor3" style=" width: 1px; "></td>
+<td class=" content level3 subcell">You can install a new version of Python, and install and maintain the packages we'll need one by one. I did this for many years. It's doable, but quite a headache, and it makes it hard to share code or collaborate on development, since your environment will differ from others'. We instead strongly urge you to install a specific pre-assembled Python distribution.<br>
+</td>
+</tr></table></div></td></tr></table>
+</div>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor2"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level2 levelguttercolor2" style="width: 25px;"></td>
+<td class=" subcell wholedocgutter indicator level2 levelguttercolor2" style="width: 15px;"><img onmousedown="ioSwitch('pcwH6E1-C0RW', event.shiftKey)" id="icwH6E1-C0RW" border="0" alt="V" class="parent" src="Expanded.png" title="collapse"></td>
+<td class=" subcell wholedocgutter labelpadding level2 levelguttercolor2" style=" width: 1px; "></td>
+<td class=" content level2 subcell">Anaconda Scientific Python distribution<br>
+</td>
+</tr></table></div></td></tr></table>
+<div id="pcwH6E1-C0RW" class="expanded">
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level3 levelguttercolor3" style="width: 41px;"></td>
+<td class=" subcell wholedocgutter indicator level3 levelguttercolor3" style="width: 15px;"><img border="0" alt="*" class="leaf" src="LeafRowHandle.png"></td>
+<td class=" subcell wholedocgutter labelpadding level3 levelguttercolor3" style=" width: 1px; "></td>
+<td class=" content level3 subcell">We strongly recommend using the Anaconda Python distribution (the Python-2.7 version). It is free, contains most of the software we need, and provides package management and virtual environment capabilities not readily available otherwise.  It is also very popular. You'll find it here: <span class="" style="font-size: 12px;"> <span><a href="https://store.continuum.io/cshop/anaconda/">Anaconda Scientific Python Distribution</a></span></span><span class="" style="font-size: 12px;">.</span><br>
+</td>
+</tr></table></div></td></tr></table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level3 levelguttercolor3" style="width: 41px;"></td>
+<td class=" subcell wholedocgutter indicator level3 levelguttercolor3" style="width: 15px;"><img border="0" alt="*" class="leaf" src="LeafRowHandle.png"></td>
+<td class=" subcell wholedocgutter labelpadding level3 levelguttercolor3" style=" width: 1px; "></td>
+<td class=" content level3 subcell">As instructors, we will assume you are using Anaconda Python-2.7, and we will help with installation and operation issues only for Anaconda.<br>
+</td>
+</tr></table></div></td></tr></table>
+<table cellspacing="0" border="0" cellpadding="0" class="row heighthack"><tr><td class=" col1 colbackground1 col_width1" style=""><div class=" full levelcolor3"><table border="0" cellspacing="0" cellpadding="0" style="height:100%" class=" col_width1 col1"><tr>
+<td class=" subcell wholedocgutter level3 levelguttercolor3" style="width: 41px;"></td>
+<td class=" subcell wholedocgutter indicator level3 levelguttercolor3" style="width: 15px;"><img border="0" alt="*" class="leaf" src="LeafRowHandle.png"></td>
+<td class=" subcell wholedocgutter labelpadding level3 levelguttercolor3" style=" width: 1px; "></td>
+<td class=" content level3 subcell">Anaconda is free and mostly open-source. It is a product of Continuum Analytics, which generates its income via support and via paid-for licenses to some packages that extend Anaconda's numerical capabilities (e.g., optimized libraries, GPU capability). We are not currently planning on covering these additions in class, but as an academic user you can get free access to them. To do so, sign up for an academic license here:  <span><a href="https://store.continuum.io/cshop/academicanaconda">https://store.continuum.io/cshop/academicanaconda</a></span><br>
+</td>
+</tr></table></div></td></tr></table>
+</div>
+</div>
+</td></tr></table></body>
+</html>
