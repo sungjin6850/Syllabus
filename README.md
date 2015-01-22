@@ -1,6 +1,6 @@
 # STSCI 4780 - Bayesian data analysis: principles and practice
 
-**Lectures:**  Tuesdays & Thursdays, 1:25pm - 2:40pm, in Upson 109
+**Lectures:**  Tuesdays & Thursdays, 1:25pm - 2:40pm, in Upson 109  
 **Labs:**  Fridays, 2:55pm - 4:10pm, in Phillips 213
 
 **Instructor:**  
