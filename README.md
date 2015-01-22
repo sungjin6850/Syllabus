@@ -1,7 +1,3 @@
-Title: Syllabus 2015
-Author: Tom Loredo
-Base Header Level: 1
-
 # STSCI 4780 - Bayesian data analysis: principles and practice
 
 **Lectures:**  Tuesdays & Thursdays, 1:25pm - 2:40pm, in Upson 109
@@ -54,7 +50,7 @@ That said, if you plan on using Bayesian methods in your career, you should inve
 By John Kruschke
 
 * [Amazon.com](http://smile.amazon.com/Doing-Bayesian-Data-Analysis-Second/dp/0124058884/ref=sr_1_1?s=books&ie=UTF8&qid=1421086218&sr=1-1&keywords=doing+bayesian+data)
-* Publisher's site (currently on sale!)
+* Publisher's site (currently on sale) [link TBA]
 * [Author's book site (with discount link)](https://sites.google.com/site/doingbayesiandataanalysis/)
 * [Author's blog (free chapter)](http://doingbayesiandataanalysis.blogspot.com/)
 * [Via BigWords.com](http://www.bigwords.com/details/book/Doing_Bayesian_Data_Analysis_Second_Edition_A_Tutorial_with_R_JAGS_and_Stan/9780124058880/0124058884) (a new/used textbook search service)
@@ -101,3 +97,40 @@ This book offers probably the clearest and most thorough modern account of the p
 ["A Frequentist Does This, A Bayesian That" (Diaconis's review of Jaynes's PTLOS)](http://www.siam.org/news/news.php?id=81)
 
 I've put several other useful books on reserve; I'll add comments about some of them here as we get to corresponding material in class.
+
+
+# Lecture plan
+
+ # | Date   | Topic
+---|--------|------
+1|	Jan	22 | Course intro; Motivation: Models, measurements, arguments
+2|	Jan	27 | Assessing deductive arguments: Propositional logic, Boolean algebra
+3|	Jan	29 | Assessing inductive arguments:  Probability theory
+4|	Feb	3 | Key theorems
+5|	Feb	5 | Discrete data:  Bernoulli, binomial, beta
+6|Feb	10|	More counting: Multinomial/Dirichlet, Poisson/gamma; nuisance parameters
+7|Feb	12|	Continuous data: Normal distribution, Student's t
+
+After the Feb break, we'll synthesize what we've learned to a general prescription for inference with parametric models, and then continue with more sophisticated models---Bayesian counterparts to multi-parameter conventional regression models.
+
+Next we'll focus on Bayesian computation, culminating with Markov chain Monte Carlo (MCMC).
+
+With flexible computational tools in hand, we'll explore richer model structures---*hierarchical Bayesian models* (also known as multilevel models, or probabilistic graphical models).
+
+At this point you will be defining your final projects.  I have a large menu of further topics; we'll choose from them based in part on relevance to student projects.
+
+
+# Lab plan
+
+For the first few weeks, the labs will operate somewhat separate from the lectures, aiming to build familiarity with the tools we'll use to implement nontrivial Bayesian computations later in the course.
+
+ # | Date   | Topic
+---|--------|------
+1|	Jan	23 | Markdown, Git, GitHub
+2|	Jan	30 | IPython notebook
+3|	 Feb 6 | The PyData stack
+4| Feb	 13 | Monte Carlo methods
+
+As the lectures move beyond fundamental, analytically tractable examples, the labs and lectures will mesh more strongly, with labs implementing computational methods and flexible models covered in lecture.
+
+
