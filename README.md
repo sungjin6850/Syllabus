@@ -50,7 +50,7 @@ That said, if you plan on using Bayesian methods in your career, you should inve
 By John Kruschke
 
 * [Amazon.com](http://smile.amazon.com/Doing-Bayesian-Data-Analysis-Second/dp/0124058884/ref=sr_1_1?s=books&ie=UTF8&qid=1421086218&sr=1-1&keywords=doing+bayesian+data)
-* Publisher's site (currently on sale) [link TBA]
+* [Publisher's site (currently on sale)](http://store.elsevier.com/Doing-Bayesian-Data-Analysis/John-Kruschke/isbn-9780124059160/)
 * [Author's book site (with discount link)](https://sites.google.com/site/doingbayesiandataanalysis/)
 * [Author's blog (free chapter)](http://doingbayesiandataanalysis.blogspot.com/)
 * [Via BigWords.com](http://www.bigwords.com/details/book/Doing_Bayesian_Data_Analysis_Second_Edition_A_Tutorial_with_R_JAGS_and_Stan/9780124058880/0124058884) (a new/used textbook search service)
